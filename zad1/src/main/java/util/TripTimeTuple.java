@@ -18,7 +18,11 @@ public class TripTimeTuple implements Writable {
     }
 
     public TripTimeTuple(long init) {
-        this(init,init,init);
+        this(init, init, init);
+    }
+
+    public TripTimeTuple() {
+
     }
 
 

@@ -4,21 +4,17 @@ package util;/*
  * and open the template in the editor.
  */
 
-import java.text.SimpleDateFormat;
-
 /**
  * @author Krešimir Pripužić <kresimir.pripuzic@fer.hr>
  */
 public class DEBSRecordParser {
-    private static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     private String medallion;
     private long tripTimeSecs;
 
     public void parse(String record) throws Exception {
         String[] splitted = record.split(",");
         medallion = splitted[0];
-        tripTimeSecs = DATE_TIME_FORMATTER.parse(splitted[3]).getTime()
-                - DATE_TIME_FORMATTER.parse(splitted[2]).getTime();
+        tripTimeSecs = Integer.parseInt(splitted[8]);
     }
 
     public String getMedallion() {
