@@ -1,0 +1,8 @@
+1.1 8229 razlicitih vozila
+1.2 za taksi medaljona FFFECF75AB6CC4FF9E8A8B633AB81C26 sumTripTime=65340, minTripTime=180, maxTripTime=3660
+1.3 Nikakve, izvorni kod reducera je vec bio prikadan za combiner
+1.4 Program se izvodio nad manjom inačicom podataka:
+    - bez combinera 57,562 s
+    - s combinerom 56,542 s
+    Rezultat je očekivan, tj. mala razlika je očekivana zbog toga što se radi o manjem skupu podataka, stoga
+        se ne vidi bitna razlika između dvaju metoda

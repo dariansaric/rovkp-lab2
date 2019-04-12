@@ -25,7 +25,7 @@ public class Main {
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         job.setMapperClass(TripTimeMapper.class);
-//        job.setCombinerClass(TripTimeReducer.class);
+        job.setCombinerClass(TripTimeReducer.class);
         job.setReducerClass(TripTimeReducer.class);
 
         job.setOutputKeyClass(Text.class);
