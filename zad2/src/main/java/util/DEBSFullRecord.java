@@ -25,21 +25,25 @@ public class DEBSFullRecord {
     private final double pickupLatitude;
     private final double dropoffLongitude;
     private final double dropoffLatitude;
+    private final double tripDistance;
+    private final int rateCode;
 
     public DEBSFullRecord(String record) throws Exception {
         String[] splitted = record.split(",");
         medallion = splitted[0];
         hackLicense = splitted[1];
         vendorID = splitted[2];
-        storeAndFwdFlag = splitted[3];
-        pickup = DATE_FORMATTER.parse(splitted[3]);
-        dropoff = DATE_FORMATTER.parse(splitted[4]);
-        passengerCount = Integer.parseInt(splitted[5]);
-        tripTimeInSecs = Long.parseLong(splitted[6]);
-        pickupLongitude = Double.parseDouble(splitted[7]);
-        pickupLatitude = Double.parseDouble(splitted[8]);
-        dropoffLongitude = Double.parseDouble(splitted[9]);
-        dropoffLatitude = Double.parseDouble(splitted[10]);
+        rateCode = Integer.parseInt(splitted[3]);
+        storeAndFwdFlag = splitted[4];
+        pickup = DATE_FORMATTER.parse(splitted[5]);
+        dropoff = DATE_FORMATTER.parse(splitted[6]);
+        passengerCount = Integer.parseInt(splitted[7]);
+        tripTimeInSecs = Long.parseLong(splitted[8]);
+        tripDistance = Double.parseDouble(splitted[9]);
+        pickupLongitude = Double.parseDouble(splitted[10]);
+        pickupLatitude = Double.parseDouble(splitted[11]);
+        dropoffLongitude = Double.parseDouble(splitted[12]);
+        dropoffLatitude = Double.parseDouble(splitted[13]);
     }
 
     public String getMedallion() {
@@ -105,6 +109,16 @@ public class DEBSFullRecord {
                 ", pickupLatitude=" + pickupLatitude +
                 ", dropoffLongitude=" + dropoffLongitude +
                 ", dropoffLatitude=" + dropoffLatitude +
+                ", tripDistance=" + tripDistance +
+                ", rateCode=" + rateCode +
                 '}';
+    }
+
+    public int getRateCode() {
+        return rateCode;
+    }
+
+    public double getTripDistance() {
+        return tripDistance;
     }
 }

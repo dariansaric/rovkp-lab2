@@ -20,11 +20,13 @@ public class RecordTuple implements Writable {
         dataOutput.writeChars(record.getMedallion());
         dataOutput.writeChars(record.getHackLicense());
         dataOutput.writeChars(record.getVendorID());
+        dataOutput.writeInt(record.getRateCode());
         dataOutput.writeChars(record.getStoreAndFwdFlag());
         dataOutput.writeChars(DATE_FORMATTER.format(record.getPickup()));
         dataOutput.writeChars(DATE_FORMATTER.format(record.getDropoff()));
         dataOutput.writeInt(record.getPassengerCount());
         dataOutput.writeLong(record.getTripTimeInSecs());
+        dataOutput.writeDouble(record.getTripDistance());
         dataOutput.writeDouble(record.getPickupLongitude());
         dataOutput.writeDouble(record.getPickupLatitude());
         dataOutput.writeDouble(record.getDropoffLongitude());
@@ -34,7 +36,9 @@ public class RecordTuple implements Writable {
     @Override
     public void readFields(DataInput dataInput) throws IOException {
         try {
-            record = new DEBSFullRecord(dataInput.readLine());
+            record = new DEBSFullRecord(
+                    dataInput.readUTF()
+            );
         } catch (Exception e) {
             e.printStackTrace();
         }

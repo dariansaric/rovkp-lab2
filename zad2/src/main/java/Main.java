@@ -1,12 +1,12 @@
-import javafx.scene.text.Text;
 import mapreduce.LocationPassengerPartitioner;
 import mapreduce.PartitionMapper;
 import mapreduce.PartitionReducer;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import util.RecordTuple;
+import util.SimpleRecordTuple;
 
 import java.io.IOException;
 
@@ -27,14 +27,14 @@ public class Main {
         job.setReducerClass(PartitionReducer.class);
         job.setPartitionerClass(LocationPassengerPartitioner.class);
         job.setNumReduceTasks(6);
+//        job.setNumReduceTasks(3);
 
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(RecordTuple.class);
+        job.setOutputValueClass(SimpleRecordTuple.class);
 
         long start = System.currentTimeMillis();
 
         System.out.println("Započinje posao...");
-//        job.submit();
         System.out.println(String.format("Posao%sje obavljen...", job.waitForCompletion(true) ? " " : " ni"));
         System.out.println("Vrijeme izvrsavanja: " + (System.currentTimeMillis() - start) + " ms");
     }
