@@ -1,0 +1,15 @@
+2.1
+uzi centar - 216975 voznji
+siri centar - 381491 voznji
+
+2.2 Bilo je potrebno odabrati prikladan format parova kljuc-vrijednost, te prenijeti samo potrebne parametre
+    (hacklicense, koordinate pocetka i kraja voznje, te broj putnika)
+
+2.3
+133255 - uzi centar, 1 putnik
+37054  - uzi centar, 2 ili tri putnika
+46666  - uzi centar, 4 ili vise putnika
+235437 - siri centar, 1 putnik
+64359  - siri centar 2 ili 3 putnika
+81695  - siri centar, 4 ili vise putnika
+598466 - ukupno voznji
