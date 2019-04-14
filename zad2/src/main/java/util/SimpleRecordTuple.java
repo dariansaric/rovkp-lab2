@@ -11,6 +11,9 @@ public class SimpleRecordTuple implements Writable {
     private double[] pickup = new double[2];
     private double[] dropoff = new double[2];
     private int passengerCount;
+    private long sumTripTime;
+    private long minTripTime;
+    private long maxTripTime;
 
     public SimpleRecordTuple() {
     }
@@ -21,6 +24,9 @@ public class SimpleRecordTuple implements Writable {
         dropoff[0] = record.getDropoffLongitude();
         dropoff[1] = record.getDropoffLatitude();
         passengerCount = record.getPassengerCount();
+        sumTripTime = record.getTripTimeInSecs();
+        minTripTime = sumTripTime;
+        maxTripTime = sumTripTime;
     }
 
 
@@ -31,6 +37,9 @@ public class SimpleRecordTuple implements Writable {
         dataOutput.writeDouble(dropoff[0]);
         dataOutput.writeDouble(dropoff[1]);
         dataOutput.writeInt(passengerCount);
+        dataOutput.writeLong(sumTripTime);
+        dataOutput.writeLong(minTripTime);
+        dataOutput.writeLong(maxTripTime);
     }
 
     @Override
@@ -40,6 +49,9 @@ public class SimpleRecordTuple implements Writable {
         dropoff[0] = dataInput.readDouble();
         dropoff[1] = dataInput.readDouble();
         passengerCount = dataInput.readInt();
+        sumTripTime = dataInput.readLong();
+        minTripTime = dataInput.readLong();
+        maxTripTime = dataInput.readLong();
     }
 
     @Override
@@ -49,6 +61,18 @@ public class SimpleRecordTuple implements Writable {
                 ", dropoff=" + Arrays.toString(dropoff) +
                 ", passengerCount=" + passengerCount +
                 '}';
+    }
+
+    public long getSumTripTime() {
+        return sumTripTime;
+    }
+
+    public long getMinTripTime() {
+        return minTripTime;
+    }
+
+    public long getMaxTripTime() {
+        return maxTripTime;
     }
 
     public int getPassengerCount() {

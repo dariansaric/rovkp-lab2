@@ -50,6 +50,9 @@ public class DEBSFullRecord {
         return medallion;
     }
 
+    public String getHackLicense() {
+        return hackLicense;
+    }
 
     public String getVendorID() {
         return vendorID;
