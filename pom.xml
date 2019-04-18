@@ -12,6 +12,7 @@
         <module>zad1</module>
         <module>zad2</module>
         <module>zad3</module>
+        <module>lab-zad</module>
     </modules>
 
     <properties>

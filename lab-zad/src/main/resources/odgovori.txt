@@ -1,0 +1,4 @@
+1.1 Koristi samo funkciju map
+1.2 Nastala je samo jedna datoteka
+1.3 39228 zapisa je odbačeno nakon odrađenog MapReduce posla
+
